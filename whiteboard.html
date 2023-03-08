@@ -1,0 +1,286 @@
+<!--
+    Source design: https://www.canva.com/design/DAFQBGkGzsU/SWANg_rUcevEPQpz7T7vOg/edit
+
+-->
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./dist/output.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan&family=Poppins:wght@200&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+  <title>White Board</title>
+</head>
+
+<!--Header-->
+<!-- Header-->
+<header id="navbar"
+  class="sticky top-0 z-50  visible h-12 w-full grid grid-cols-3 bg-white py-0.5 shadow-md shadow-lime-500/80">
+  <div class="p-1 pl-2 overflow-hidden">
+    <a href="#" class="font-sans"><i class="fas fa-graduation-cap pr-2 lg:text-2xl"></i><span
+        class="lg:text-xl">Personal
+        Instructing Agent</span></a>
+  </div>
+  <div class="lg:py-2 sm:py-1 text-center">
+    <p class="font-sans lg:text-xl">Whiteboard</p>
+  </div>
+  <div :class="{'flex': open, 'hidden': !open}"
+    class="flex-col flex-grow pb-4 md:pb-0 mr-2 hidden md:flex md:justify-end md:flex-row">
+    <div @click.away="open = false" class="relative" x-data="{ open: false }">
+      <button @click="open = !open"
+        class="lg:text-xl flex flex-row items-center w-full px-2 py-2 text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900  hover:bg-gray-200 focus:outline-none focus:shadow-outline">
+        <span>Username</span>
+        <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}"
+          class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">
+          <path fill-rule="evenodd"
+            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </button>
+      <div x-show="open" x-transition:enter="transition ease-out duration-100"
+        x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100"
+        x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100"
+        x-transition:leave-end="transform opacity-0 scale-95"
+        class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48 ">
+        <div class="py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
+          <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200  focus:shadow-outline"
+            href="#">Profile</a>
+          <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200  focus:shadow-outline"
+            href="#">Progress</a>
+          <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200  focus:shadow-outline"
+            href="#">Settings</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="absolute z-10 top-0 left-0 right-0 mx-auto  text-center  w-1/2">
+    <div class="inline-flex  hover:pt-10 mt-0.5 opacity-0 hover:opacity-100  ">
+      <ul class=" shadow-sm shadow-lime-500 mt-2 pb-1 px-4 z-0 bg-white border-t-2 border-t-gray-300">
+        <li class="inline-block">
+          <a href="homepage.html" class="no-underline text-gray-500 hover:text-gray-800 hover:underline">Home</a>
+        </li>
+        <span class="mx-1 text-[#656565] text-xl">-</span>
+        <li class="inline-block">
+          <a href="difficulty.html" class="no-underline text-gray-500 hover:text-gray-800 hover:underline">Difficulty
+            Page</a>
+        </li>
+        <span class="mx-1 text-[#656565] text-xl">-</span>
+        <li class="inline-block">
+          <a class="no-underline text-[#799012] font-medium select-none">Whiteboard</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+<!-- Header [End]-->
+
+<style>
+  .to-lime-250 {
+    --tw-gradient-to: #ccf779;
+  }
+</style>
+
+<body class="bg-gradient-to-t from-lime-300 via-lime-200 to-lime-250">
+  <!--Container pang edit ng grids-->
+
+  <div class="scale-y-95 scale-x-100 ">
+    <div
+      class="container mx-auto rounded-bl-6xl rounded-tr-6xl rounded-tl-6xl border-l-12 border-b-12 border-yellow-700 border-r-brTwo border-r-12  md:flex-row items-center lg:w-9/12 lg:h-3/5 sm:h-1/12  bg-mainBGBrown shadow-2xl shadow-yellow-400  ">
+      <!--Mother grids-->
+      <div class="  grid grid-cols-20 grid-rows-16 bg-mainBrown  overflow-hidden pt-3 pl-3 pr-3 ">
+
+        <!------------------------------------------------------------------------>
+        <!--FOR Buttons Start-->
+        <div class="  row-span-16  ">
+
+          <nav class="flex flex-col items  ">
+            <!--For Question button-->
+            <div class="p-2 text-gray-500 hover:text-white focus:outline-none focus:text-white rounded-full">
+
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                class="cursor-pointer h-11 w-11 text-black/50 bg-gray-400/90 fill-gray-400/90 hover:fill-gray-300/90 hover:bg-gray-300/90 hover:text-white rounded-full p-1">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+              </svg>
+
+
+            </div>
+            <!--For HINT button-->
+            <button class="p-2 text-gray-500 hover:text-white focus:outline-none focus:text-white">
+              <svg
+                class="fill-yellow-400/90 h-11 w-11 text-black/50 bg-yellow-400/90 rounded-full hover:fill-yellow-300/90 hover:bg-yellow-300/90 hover:text-white/70 p-1"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+
+            </button>
+            <!--For Video button-->
+            <button class="p-2 text-gray-500 hover:text-white focus:outline-none focus:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                class="fill-red-600/90 w-11 h-11 p-1 text-black/50 bg-red-600/90 hover:fill-red-500/90 hover:bg-red-500/90 hover:text-white rounded-full">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112z" />
+              </svg>
+            </button>
+
+            <!--For PEN button-->
+            <button class="p-2 text-gray-500 hover:text-white focus:outline-none focus:text-white">
+              <svg
+                class="fill-lime-700/90 h-11 w-11 text-black/50 bg-lime-700/90 rounded-full hover:fill-lime-600/90 hover:bg-lime-600/90 hover:text-white p-1"
+                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" />
+                <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4" />
+                <line x1="13.5" y1="6.5" x2="17.5" y2="10.5" />
+              </svg>
+            </button>
+          </nav>
+        </div>
+
+        <!--Given Area-->
+        <div class="col-span-9 bg-white row-span-2  border-l-12  border-l-brTwo border-t-12 border-t-yellow-700 ">
+          <div class="flex relative flex-col ml-4 mt-4 ">
+            <span class="font-poppins text-3xl font-medium"><span class="font-bold">Given: &nbsp</span>3x - 58 = 49 <br>
+              <span class="ml-24"> &nbsp &nbsp &nbsp &nbsp &nbsp3x = 107 </span>
+            </span>
+
+          </div>
+
+
+        </div>
+        <!--Synthetic Facial AREA-->
+        <div class="col-span-5 row-span-6  bg-white border-t-12 border-r-12  border-yellow-700">
+          <div class="flex  justify-center relative">
+            <img class="bg-slate-100 rounded-full relative" src="./smileFaceMale.png" alt="">
+            <img class="absolute mt-52 object-scale-down" src="./streakBG.png" alt="">
+            <h3 class="absolute mt-72 text-2xl font-bold  text-yellow-300">
+              <span>STREAK: <span>5</span></span>
+            </h3>
+          </div>
+        </div>
+
+
+
+        <!--Synthetic Facial Message AREA-->
+        <div
+          class="col-span-5 row-span-4 bg-slate-200 shadow-lg border-l-18 border-l-brTwo border-t-12 border-t-yellow-700 border-r-12 border-r-yellow-700  rounded-tr-6xl">
+          <div class=" flex justify-center text-center">
+            <p class="text-2xl font-bold font-poppins p-2 mt-16"> You're on a streak! Wanna try something more
+              challenging?
+              <!--
+              <span class="text-3xl"> Good Job!</span></p>
+              -->
+          </div>
+        </div>
+
+        <!--main WHITE BOARD area-->
+        <div class="col-span-9 row-span-12 bg-white  border-l-12  border-l-brTwo">
+          <div class="flex">
+
+          </div>
+        </div>
+
+        <!-- CONTINUE OR NO area-->
+        <div class="col-span-5 row-span-2 bg-slate-200 border-l-18 border-l-brTwo border-r-12 border-r-yellow-700">
+          <div class="flex   justify-evenly text-center mt-4">
+
+            <button
+              class="bg-greenSure hover:bg-green-700 text-black font-bold py-2 px-4 rounded-full border border-black font-leagueSpartan text-center">
+              SURE!
+            </button>
+            <button
+              class="bg-red-500 hover:bg-red-700 text-black font-bold py-2 px-4 rounded-full border border-black font-leagueSpartan text-center">
+              NOT YET!
+            </button>
+          </div>
+        </div>
+
+
+
+        <div class="col-span-5 row-span-5 bg-white border-r-12  border-yellow-700 ">
+          <div class="flex relative ">
+            <!--
+              SA baba
+            <img src="/streakBG.png" alt="">
+            -->
+          </div>
+        </div>
+
+
+        <!--userlogs TEXT divider section-->
+        <div class="col-span-5   border-l-18  border-brTwo">
+          <div class="flex justify-center text-center border-dotted border-b-4">
+            <span class="text-2xl text-white font-poppins ">USER LOGS</span>
+          </div>
+        </div>
+
+        <!--userLogs STORING area -->
+        <div class="col-span-5 row-span-8  border-l-18 border-brTwo">
+          <div class="flex">
+
+          </div>
+        </div>
+
+
+        <!--White area in whiteboard under synthetic face-->
+        <div class="col-span-5 row-span-3 bg-white border-r-12  border-r-yellow-700">
+          <div class="flex justify-center">
+
+          </div>
+        </div>
+
+        <!--text Area-->
+        <div class="col-span-14 row-span-2  rounded-bl-5xl bg-mainBGBrown border-r-yellow-700 border-r-12 ">
+          <div class="flex flex-col  border-borderBr rounded-5xl border-12 mt-3.5 mx-4 ">
+            <form autocomplete="off ">
+
+              <div class="relative  bg-borderBr font-poppins font-bold  ">
+
+                <input type="text" id="chat" class=" block rounded-5xl w-full p-5  text-xl" placeholder="Input">
+                <button type="submit"
+                  class="text-white text-xl font-light absolute right-2.5 bottom-2 bg-lime-700 hover:bg-lime-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-full  px-4 py-3 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!--Trashcan area-->
+        <div class="col-span-5 border-l-18 border-brTwo">
+          <div class="flex justify-end">
+            <button class="">
+              <svg class="h-10 w-10 bg-white rounded-full p-2  hover:bg-gray-300" id="Layer_1" data-name="Layer 1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
+                <defs>
+                  <linearGradient id="linear-gradient" x1="256" y1="582.3" x2="256" y2="-70.35"
+                    gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#231f20" />
+                    <stop offset="1" stop-color="#58595b" />
+                  </linearGradient>
+                </defs>
+                <title>trash</title>
+                <path
+                  d="M84.47,16.86,231.05,37.92l1.87-13.33a28.45,28.45,0,0,1,32-24.31h0a28.65,28.65,0,0,1,24,32.35L287,46,433.62,67A21.88,21.88,0,0,1,452,91.74v0a21.69,21.69,0,0,1-24.43,18.56L78.38,60.15A21.88,21.88,0,0,1,60,35.43v0A21.72,21.72,0,0,1,84.47,16.86Zm328,92H88.56c-12.17,0-20.67,10-18.86,22.14l52.93,358.9C124.44,502.05,135.85,512,148,512H352.55c12.15,0,23.58-9.95,25.4-22.08L431.31,131C433.12,118.81,424.64,108.85,412.49,108.85ZM179.79,432.73l-.69.07a13.34,13.34,0,0,1-14.48-12.07L141.8,182.35a13.42,13.42,0,0,1,11.91-14.66l.69-.07a13.37,13.37,0,0,1,14.48,12.07l22.84,238.4A13.4,13.4,0,0,1,179.79,432.73ZM264.09,420a13.37,13.37,0,0,1-13.27,13.44h-.67A13.41,13.41,0,0,1,236.87,420V180.48A13.41,13.41,0,0,1,250.15,167h.67a13.37,13.37,0,0,1,13.27,13.44Zm71.6.78A13.35,13.35,0,0,1,321.2,432.8l-.72-.07a13.44,13.44,0,0,1-11.89-14.68l23.09-238.37a13.36,13.36,0,0,1,14.52-12l.65.07a13.44,13.44,0,0,1,11.94,14.66Z"
+                  fill-rule="evenodd" fill="url(#linear-gradient)" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</body>
+
+</html>
